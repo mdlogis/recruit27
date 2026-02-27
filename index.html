@@ -40,7 +40,6 @@ header{
   align-items:center;
 }
 
-/* ロゴの表示サイズ調整（正方形じゃなくても綺麗に収まる） */
 .brand img{
   height:32px; 
   width: auto;
@@ -80,12 +79,12 @@ section{
   line-height:1.4;
   margin-bottom:16px;
 }
-
 .hero p{
   color:var(--muted);
   margin-bottom:24px;
 }
 
+/* こんな方におすすめセクション */
 .benefits{
   background:var(--bg);
   border:1px solid var(--border);
@@ -95,12 +94,14 @@ section{
   list-style-type: none;
   padding-left: 20px;
 }
-
 .benefits li{
   margin-bottom:12px;
   position: relative;
-  padding-left: 5px;
+  padding-left: 10px;
+  font-weight: 600;
+  font-size: 15px;
 }
+.benefits li:last-child { margin-bottom: 0; }
 .benefits li::before{
   content: "✓";
   position: absolute;
@@ -116,20 +117,38 @@ h2{
   padding-left: 12px;
 }
 
-.detail{
+/* 開催概要・プログラム */
+.detail-box{
+  background: var(--bg);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+.detail-list{
+  font-size: 14px;
+  padding-left: 20px;
+  margin: 0;
+}
+.detail-list li{
+  margin-bottom: 8px;
+}
+
+/* 求人の特徴セクション */
+.company-char{
   background:#fff;
   border:1px solid var(--border);
   border-radius:12px;
-  padding:20px;
+  padding:24px;
   margin-top:16px;
 }
-
-.detail strong{
+.company-char strong{
   display:block;
-  margin: 16px 0 8px;
-  color: var(--primary);
+  margin-bottom: 16px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.4;
 }
-.detail strong:first-child{ margin-top: 0; }
+.company-char strong:last-child{ margin-bottom: 0; }
 
 iframe{
   width:100%;
@@ -140,13 +159,13 @@ iframe{
   background: var(--bg);
 }
 
-/* 下部固定CTA */
 .fixed-cta{
   position:fixed;
   bottom:0;
   left:0;
   right:0;
   padding:12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
   background:rgba(255,255,255,0.9);
   backdrop-filter: blur(8px);
   border-top:1px solid var(--border);
@@ -176,45 +195,64 @@ footer{
 
 <main>
   <section class="hero">
-    <h1>【27卒】MDロジス株式会社｜WEB選考説明会</h1>
+    <h1>こころを動かし、よろこびを届ける。</h1>
     <p>
-      選考説明会のご予約をいただけます。
-      ご登録いただいたメールアドレスに詳細をお送りしますので、入力間違いにお気を付けください。
+      【27卒】MDロジス株式会社｜WEB選考説明会<br>
+      選考説明会を開催いたしますので、ご予約お待ちしております！
+      ご入力いただいたメールアドレスに参加URL等の詳細をお送りしますので、お間違いないようご確認お願いします。
     </p>
-
     <a href="#apply" class="cta-btn loadFormTrigger">空き日程を確認する（1分）</a>
+  </section>
+
+  <section>
+    <h2>こんな方におすすめ</h2>
+    <ul class="benefits">
+      <li>インフラを支える業界でやりがいを持って働きたい</li>
+      <li>社会貢献度や事業安定性が高い会社で働きたい</li>
+      <li>管理・企画・営業など多種多様な業務を経験したい</li>
+      <li>プロフェッショナルなキャリアを目指したい</li>
+    </ul>
+  </section>
 
   <section>
     <h2>開催概要</h2>
-    <ul>
-      <li>開催時期：毎月複数回開催</li>
+    <ul style="margin-bottom: 16px;">
+      <li>開催日：毎月複数回開催</li>
       <li>時間：10:00〜12:00</li>
       <li>形式：オンライン開催</li>
       <li>対象：2027年卒業予定の学生</li>
+      <li>持ち物：筆記用具</li>
     </ul>
-    <p style="font-size:14px;color:#666">
-      ※詳細な日程は、予約フォーム内でご確認ください
-    </p>
-  </section>
- <section>
-    <h2>今後の選考フロー</h2>
-    <div class="detail">
-      <strong>STEP1▶説明会</strong>
-      <strong>STEP2▶書類選考(ES・適性検査)</strong>
-      <strong>STEP3▶グループディスカッション</strong>
-      <strong>STEP4▶一次面接(WEB)</strong>
-      <strong>STEP5▶最終面接(東京本社)</strong>
-
+ <p style="font-size:13px; color:#999; margin-top:10px;">※詳細な日程は、予約フォーム内でご確認ください</p>
+    <div class="detail-box">
+      <p style="font-weight: 600; margin-top: 0; color: var(--primary); font-size: 15px;">【当日のプログラム】</p>
+      <ul class="detail-list">
+        <li><strong>会社紹介：</strong>事業内容・組織・仕事内容・取扱製品</li>
+        <li><strong>魅力の深掘り：</strong>最新トピックス・研修制度・福利厚生・キャリアビジョン</li>
+        <li><strong>選考案内：</strong>募集要項・選考フロー・今後のスケジュール</li>
+      </ul>
     </div>
   </section>
+
+  <section>
+    <h2>MDロジスの特徴</h2>
+    <div class="company-char">
+      <strong>■三菱電機グループの幅広い製品に関われる</strong>
+      <strong>■メーカー系物流会社ならではの安定した経営基盤</strong>
+      <strong>■管理・企画・営業など幅広いキャリアを築ける</strong>
+      <strong>■業界内トップ水準を誇る福利厚生制度</strong>
+      <strong>■物流のプロを目指すための充実した教育体制</strong>
+    </div>
+  </section>
+
   <section id="apply">
     <h2>予約フォーム</h2>
-    <p style="font-size:15px;color:#666">
+    <p style="font-size:15px;color:#666; margin-bottom: 20px;">
       所要時間：約1分 
     </p>
 
     <div id="form-placeholder">
-      <button class="cta-btn loadFormTrigger">フォームを表示する</button>
+      <button class="cta-btn loadFormTrigger" style="width:100%;">予約フォームを表示する</button>
     </div>
   </section>
 </main>
@@ -228,48 +266,33 @@ footer{
 </footer>
 
 <script>
-  // フォーム読み込み共通関数
   function loadIframe() {
     const placeholder = document.getElementById('form-placeholder');
-    // すでにiframeが存在する場合はスキップ
     if (!placeholder.querySelector('iframe')) {
-      placeholder.innerHTML = `
-        <iframe
-          src="https://forms.office.com/Pages/ResponsePage.aspx?id=Ylunxf9LlkynIGYhzpl45aKpnZemrEJIuN9fw0tln0ZUODNQODgzUUEzVDk0UktESTcyNzZCSjBZUy4u"
-          title="予約フォーム"
-        ></iframe>
-      `;
+      placeholder.innerHTML = '<p style="text-align:center; padding:40px; color:#666;">フォームを読み込んでいます...</p>';
+      const iframe = document.createElement('iframe');
+      iframe.src = "https://forms.office.com/Pages/ResponsePage.aspx?id=YlunxLlkynIGYhzpl45aKpnZemrEJIuN9fw0tln0ZUODNQODgzUUEzVDk0UktESTcyNzZCSjBZUy4u";
+      iframe.title = "予約フォーム";
+      iframe.onload = function() {
+        const loadingText = placeholder.querySelector('p');
+        if(loadingText) loadingText.remove();
+      };
+      placeholder.appendChild(iframe);
     }
   }
 
-  // ページ内の全トリガーボタン（hero, placeholder内, fixed-cta）を処理
   const triggers = document.querySelectorAll('.loadFormTrigger');
-  
   triggers.forEach(trigger => {
     trigger.addEventListener('click', function(e) {
-      // リンクとしてのデフォルト挙動を抑制
-      if(this.tagName === 'A') {
-        e.preventDefault();
-      }
-      
-      // フォームを読み込む
+      if(this.tagName === 'A') e.preventDefault();
       loadIframe();
-      
-      // スムーズにフォーム位置へスクロール
       const target = document.getElementById('apply');
-      const offset = 80; // ヘッダーの高さ分などを考慮
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const targetRect = target.getBoundingClientRect().top;
-      const targetPosition = targetRect - bodyRect - offset;
-
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
+      const offset = 80;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     });
   });
 </script>
 
 </body>
 </html>
-
